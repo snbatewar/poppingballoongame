@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My first online game</title>
+    <style media="screen">
+    @import url('https://fonts.googleapis.com/css?family=Black+Han+Sans');
+    body {
+      background: #efefef;
+      text-align: center;
+    }
+
+    h1{
+      font-family: 'Black Han Sans', sans-serif;
+      text-transform: capitalize;
+      font-style: italic;
+      color: #ee6e73;
+    }
+
+    .inflatable,
+    .balloon,
+    .string {
+      margin: 0 auto;
+    }
+
+
+      .inflatable,
+      .balloon {
+        width: 180px;
+      }
+
+      .inflatable {
+        height: 200px;
+        background-color: #F0E68C;
+        border-radius: 50%;
+      }
+      .string {
+        width: 1px;
+        height: 100px;
+        background-color: black;
+        
+      }
+    </style>
+</head>
+<body>
+  <div class="happy-text">
+    <h1>happy birthday!</h1>
+  </div>
+  <div class="balloon">
+    <div class="inflatable"></div>
+    <div class="string"></div>
+  </div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+    console.log('loaded!')
+</script>
+</html>

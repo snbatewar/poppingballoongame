@@ -1,0 +1,74 @@
+h1 {
+    color: blue;
+    font-size: 34px;
+}
+
+p {
+    font-size: 18px;
+}
+
+p.elephant {
+    color: purple;
+}
+
+body {
+    background: green;
+}
+
+ul {
+    border: 6px dashed yellow;
+    padding: 1em;
+}
+
+ul li {
+    list-style: none;
+}
+
+li.one {
+    padding: 5px;
+    margin-left: 15px;
+    background: gray;
+}
+
+li.two {
+    padding: 10px;
+    margin-right: 1em;
+    background: lightblue ;
+}
+
+li.three {
+    padding: 20px;
+    margin: 5px;
+    animation: pulse 5s infinite;
+}
+
+li.four {
+    padding: 30px;
+    background: lightgoldenrodyellow ;
+    margin: 2em;
+    position: relative;
+    -webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
+    animation: mymove 5s infinite;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes mymove {
+    from {left: 0px;}
+    to {left: 200px;}
+}
+
+@keyframes mymove {
+    from {left: 0px;}
+    to {left: 200px;}
+}
+
+@keyframes pulse {
+    0% {
+        background-color: lightgreen;
+    }
+
+    100% {
+        background-color: darkgreen;
+        color: white;
+    }
+}

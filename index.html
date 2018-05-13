@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My first online game</title>
+    <style media="screen">
+    @import url('https://fonts.googleapis.com/css?family=Black+Han+Sans');
+    body {
+      background: #efefef;
+      text-align: center;
+    }
+
+    h1{
+      font-family: 'Black Han Sans', sans-serif;
+      text-transform: capitalize;
+      font-style: italic;
+      color: #ee6e73;
+    }
+
+    .texty {
+      margin-top: 30vh;
+      font-family: 'Black Han Sans', sans-serif !important;
+      width: 100%;
+      text-align: center;
+      font-size: 333%;
+      font-family: sans-serif;
+      color: grey;
+      position: absolute;
+    }
+
+    .texty .progress {
+      opacity: 0.25;
+    }
+
+
+
+    .texty .done span {
+      opacity: 1;
+      color: #008975;
+    }
+
+    .balloon-container{
+      position: absolute;
+      bottom: 0;
+    }
+
+    .inflatable,
+    .balloon,
+    .string {
+      margin: 0 auto;
+    }
+
+
+      .inflatable,
+      .balloon {
+        width: 180px;
+      }
+
+      .inflatable {
+        height: 200px;
+        background-color: #F0E68C;
+        border-radius: 50%;
+        display: table;
+      cursor: pointer;
+      }
+      .string {
+        width: 1px;
+        height: 100px;
+        background-color: black;
+      }
+
+    #counter {
+      color: #000;
+      display: table-cell;
+      vertical-align: middle;
+      font-size: 300%;
+      font-family: 'Black Han Sans', sans-serif;
+    }
+
+      canvas {
+        overflow-y: hidden;
+        overflow-x: hidden;
+        width: 100%;
+        margin: 0;
+      }
+
+      .done {
+        display: none;
+      }
+
+    </style>
+</head>
+<body>
+  <div class="balloon-wrapper">
+
+
+  <div class="balloon-container">
+    <div class="balloon">
+      <div class="inflatable">
+<span id="counter" style="color:#000;"></span>
+      </div>
+      <div class="string"></div>
+    </div>
+
+  </div>
+  </div>
+  <div class="texty">
+    <span class="progress">Total balloons popped:</span>&nbsp;<span class="counter"></span>
+    <div class="done">
+      <span>Good job!</span>
+    </div>
+
+  </div>
+  <canvas id="canvas"></canvas>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+   const balloon = $('.balloon-container');
+   var counter = 0;
+   var audioElementPopping = document.createElement('audio');
+   audioElementPopping.volume = 0.25;
+   audioElementPopping.setAttribute('src', 'https://d1490khl9dq1ow.cloudfront.net/sfx/mp3preview/balloon-pop_GJ9b1hEd.mp3');
+   var audioElementComplete = document.createElement('audio');
+   audioElementComplete.setAttribute('src', 'https://d1490khl9dq1ow.cloudfront.net/sfx/mp3preview/intensive-clapping-50-people_z1pnKHNd.mp3');
+
+  for( var i=0; i<5; i++){
+    document.getElementById('counter').innerHTML = i+1;
+    var balloonCopy = balloon.clone();
+    balloonCopy.css({
+      left: i * 200 + 250
+    })
+    balloonCopy.appendTo('.balloon-wrapper');
+    balloonCopy.click(function(){
+      audioElementPopping.play();
+        $(this).remove();
+        counter++;
+        $(".counter").html(counter);
+        // console.log(counter);
+
+        if(counter === 5) {
+          $('.done').show();
+          audioElementComplete.play();
+          addJavascript('animation.js');
+
+        } else {
+          $('.done').hide();
+        }
+    });
+    balloonCopy.animate({bottom: "100%"}, 8000);
+
+  }
+  balloon.remove();
+
+</script>
+<!-- <script src="animation.js"></script> -->
+
+<script>
+
+function addJavascript(jsname) {
+var th = document.getElementsByTagName('head')[0];
+var s = document.createElement('script');
+s.setAttribute('type','text/javascript');
+s.setAttribute('src',jsname);
+th.appendChild(s);
+}
+
+
+</script>
+
+</html>
